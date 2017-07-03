@@ -10,20 +10,19 @@ import java.io.IOException;
  */
 public class WorkWithFiles {
     private String key;
-    public WorkWithFiles(String key){
+
+    public WorkWithFiles(String key) {
         this.key = key;
     }
 
-    public void fayels(String input,String output){
+    public void entryFiles(String input, String output) {
         XOR h = new XOR(key);
-        byte [] text;
-
+        byte[] text;
         try {
             FileInputStream in = new FileInputStream(input);
             FileOutputStream outt = new FileOutputStream(output);
             text = new byte[in.available()];
-            int line = 0 ;
-            while ((line = in.read(text))!= -1) {
+            while ((in.read(text)) != -1) {
                 outt.write(h.shifrovanie(text));
             }
             in.close();
@@ -31,8 +30,10 @@ public class WorkWithFiles {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+            System.exit(1);
         } catch (IOException e) {
             e.printStackTrace();
+            System.exit(2);
         }
 
     }

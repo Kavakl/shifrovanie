@@ -10,6 +10,6 @@ public class Main {
             Launcher check = new Launcher();
             check.cml(args);
             WorkWithFiles code = new WorkWithFiles(check.getKey());
-            code.fayels(check.getInput(), check.getOutput());
+            code.entryFiles(check.getInput(), check.getOutput());
     }
 }
